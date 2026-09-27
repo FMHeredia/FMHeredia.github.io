@@ -41,12 +41,81 @@ body {
 
 .bio {
     max-width: 650px;
-    margin: 0 auto 25px auto;
+    margin: 0 auto 20px auto;
     color: #94a3b8;
     font-size: 0.98rem;
 }
 
-/* Botones */
+/* Badge de estado */
+.status-badge {
+    display: inline-block;
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Botón Principal Destacado (CV Interactivo) */
+.main-cta {
+    margin: 25px 0 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-cv-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-cv-highlight .icon {
+    font-size: 1.4rem;
+}
+
+.btn-cv-highlight .text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.btn-cv-highlight .text strong {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.btn-cv-highlight .text small {
+    font-size: 0.75rem;
+    color: #bae6fd;
+}
+
+.btn-cv-highlight .arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cv-highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.5);
+    background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+}
+
+.btn-cv-highlight:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Botones Secundarios (Redes) */
 .contact-buttons {
     display: flex;
     justify-content: center;
@@ -71,6 +140,22 @@ body {
 
 .btn:hover {
     opacity: 0.9;
+}
+
+/* Botón de PDF en las tarjetas de proyectos */
+.btn-pdf {
+    background-color: #059669;
+    color: white;
+}
+
+.btn-pdf:hover {
+    background-color: #047857;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 /* Sección de Proyectos */
@@ -186,28 +271,6 @@ footer {
 footer a {
     color: #38bdf8;
     text-decoration: none;
-}
-/* Botón especial para documentos PDF */
-.btn-pdf {
-    background-color: #059669;
-    color: white;
-    margin-left: 8px;
-}
-
-.btn-pdf:hover {
-    background-color: #047857;
-}
-
-/* Ajuste responsive para pantallas móviles */
-.project-links {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-/* Botón destacado para el CV */
-.btn-cv {
-    background-color: #10b981;
-    color: #ffffff;
 }
 
 .btn-cv:hover {
