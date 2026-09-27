@@ -187,3 +187,20 @@ footer a {
     color: #38bdf8;
     text-decoration: none;
 }
+/* Botón especial para documentos PDF */
+.btn-pdf {
+    background-color: #059669;
+    color: white;
+    margin-left: 8px;
+}
+
+.btn-pdf:hover {
+    background-color: #047857;
+}
+
+/* Ajuste responsive para pantallas móviles */
+.project-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
