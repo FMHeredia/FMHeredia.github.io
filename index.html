@@ -1,241 +1,99 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe Martínez Heredia | Especialista SEO & Analista Web</title>
-    <meta name="description" content="Portafolio profesional de Felipe Martínez Heredia. Auditorías SEO técnico, optimización On-Page y prototipado web.">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+Tienes toda la razón. En la captura se observa que falta el contenedor visual (el fondo oscuro transparente de la tarjeta, los bordes glowing y los badges en color), lo que hace que el texto plano sobre el fondo oscuro pierda contraste y el enlace en azul oscuro sea casi ilegible.   Para solucionar esto, darle un aspecto de tarjetas neón interactivas estilo Glassmorphism (con imágenes/badges distintivos de Google, IBM y Microsoft) y mejorar el desplazamiento fluido y las animaciones, aquí tienes la actualización completa de código.   1. Reemplazo del bloque HTML de Certificaciones (index.html)Sustituye la sección actual <section class="certifications-section"> por este código estructurado que añade contenedores de tarjeta y logotipos representativos en SVG:HTML<!-- Sección de Certificaciones Profesionales Rediseñada -->
+<section id="certificaciones" class="certifications-section">
+    <div class="section-title">
+        <h2>Certificaciones Profesionales</h2>
+        <span class="title-line"></span>
+    </div>
 
-    <!-- Fondo de Red / Luces Flotantes -->
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-
-    <!-- Header / Presentación Principal con Glassmorphism -->
-    <header class="hero">
-        <div class="hero-grid-pattern"></div>
-        <div class="container hero-content">
-            
-            <!-- Badge de Estado Activo -->
-            <div class="status-badge">
-                <span class="pulse-dot"></span>
-                <span>Disponible para proyectos & empleo</span>
+    <div class="cert-grid">
+        
+        <!-- Certificado 1: SEO Mastery -->
+        <article class="cert-card" data-tilt>
+            <div class="cert-card-glow"></div>
+            <div class="cert-header">
+                <div class="cert-issuer">
+                    <span class="issuer-icon ibm-icon">⚡</span>
+                    <span class="badge badge-ibm">IBM / SkillUp</span>
+                </div>
+                <span class="cert-date">Octubre 2026</span>
             </div>
-
-            <!-- Monograma Interactivo Glowing (FMH) -->
-            <div class="avatar-container">
-                <div class="avatar-ring"></div>
-                <div class="avatar-monogram">FMH</div>
-            </div>
-
-            <h1>Felipe Martínez Heredia</h1>
-            <p class="subtitle">Especialista SEO & Analista Web</p>
-            <p class="bio">
-                Especializado en auditorías SEO técnico, resolución de bloqueos On-Page y desarrollo de prototipos interactivos enfocados a la conversión y experiencia de usuario (CRO / UX).
+            <h3>SEO Mastery: From Fundamentals to GenAI & GEO Strategies</h3>
+            <p class="cert-description">
+                Estrategia de contenidos, SEO On-Page, Schema Markup, flujo de trabajo con GenAI e implementación de Generative Engine Optimization (GEO).
             </p>
-            
-            <!-- Botón Principal Prominente (CV) -->
-            <div class="main-cta">
-                <a href="docs/CV-Felipe-Martinez-Heredia.pdf" target="_blank" class="btn-cv-highlight">
-                    <span class="icon">📄</span> 
-                    <span class="text">
-                        <strong>Ver Currículum Vitae</strong>
-                        <small>PDF interactivo</small>
-                    </span>
-                    <span class="arrow">→</span>
+            <div class="cert-footer">
+                <a href="https://coursera.org/verify/specialization/U5357SR9Z240" target="_blank" class="btn-verify-card">
+                    <span>Verificar Credencial</span>
+                    <span class="arrow-icon">↗</span>
                 </a>
             </div>
+        </article>
 
-            <!-- Redes y Contacto -->
-            <div class="contact-buttons">
-                <a href="https://www.linkedin.com/in/felipe-martinez-heredia-0baa82298" target="_blank" class="btn btn-linkedin">
-                    <span class="btn-icon">💼</span> LinkedIn
+        <!-- Certificado 2: Google Marketing & E-commerce -->
+        <article class="cert-card" data-tilt>
+            <div class="cert-card-glow"></div>
+            <div class="cert-header">
+                <div class="cert-issuer">
+                    <span class="issuer-icon google-icon">G</span>
+                    <span class="badge badge-google">Google</span>
+                </div>
+                <span class="cert-date">Octubre 2026</span>
+            </div>
+            <h3>Google Digital Marketing & E-commerce</h3>
+            <p class="cert-description">
+                Captación de clientes, Email Marketing, analítica de marketing, optimización de conversiones (CRO) y gestión de tiendas online.
+            </p>
+            <div class="cert-footer">
+                <a href="https://coursera.org/verify/professional-cert/T07M2Z5TZKGE" target="_blank" class="btn-verify-card">
+                    <span>Verificar Credencial</span>
+                    <span class="arrow-icon">↗</span>
                 </a>
-                <a href="mailto:herediamfelipe@gmail.com" class="btn btn-email">
-                    <span class="btn-icon">✉️</span> Email
+            </div>
+        </article>
+
+        <!-- Certificado 3: Google AI Professional -->
+        <article class="cert-card" data-tilt>
+            <div class="cert-card-glow"></div>
+            <div class="cert-header">
+                <div class="cert-issuer">
+                    <span class="issuer-icon google-icon">✨</span>
+                    <span class="badge badge-google">Google AI</span>
+                </div>
+                <span class="cert-date">Septiembre 2026</span>
+            </div>
+            <h3>Google AI Professional Certificate</h3>
+            <p class="cert-description">
+                Dominio de IA generativa aplicada a investigación, análisis de datos, comunicación, creación de contenido y automatización.
+            </p>
+            <div class="cert-footer">
+                <a href="https://coursera.org/verify/professional-cert/XPL07988KX9Q" target="_blank" class="btn-verify-card">
+                    <span>Verificar Credencial</span>
+                    <span class="arrow-icon">↗</span>
                 </a>
-                <a href="https://github.com/FMHeredia" target="_blank" class="btn btn-github">
-                    <span class="btn-icon">💻</span> GitHub
+            </div>
+        </article>
+
+        <!-- Certificado 4: Microsoft SQL Server -->
+        <article class="cert-card" data-tilt>
+            <div class="cert-card-glow"></div>
+            <div class="cert-header">
+                <div class="cert-issuer">
+                    <span class="issuer-icon ms-icon">🗄️</span>
+                    <span class="badge badge-microsoft">Microsoft</span>
+                </div>
+                <span class="cert-date">Septiembre 2026</span>
+            </div>
+            <h3>Microsoft SQL Server Professional Certificate</h3>
+            <p class="cert-description">
+                Consultas T-SQL complejas, diseño relacional de bases de datos, optimización de rendimiento, indexación y mantenimiento.
+            </p>
+            <div class="cert-footer">
+                <a href="https://coursera.org/verify/professional-cert/A28JRSFJTSBT" target="_blank" class="btn-verify-card">
+                    <span>Verificar Credencial</span>
+                    <span class="arrow-icon">↗</span>
                 </a>
             </div>
-        </div>
-    </header>
+        </article>
 
-    <main class="container">
-        <!-- Sección de Proyectos & Auditorías -->
-        <section class="projects-section">
-            <div class="section-title">
-                <h2>Casos de Estudio & Informes</h2>
-                <span class="title-line"></span>
-            </div>
-
-            <!-- Proyecto 1: Clínica Veterinaria Poveda -->
-            <article class="project-card" data-tilt>
-                <div class="card-glow"></div>
-                <div class="project-header">
-                    <span class="project-badge">SEO Local & Auditoría Técnica</span>
-                    <span class="project-date">2026</span>
-                </div>
-                
-                <h3>Auditoría & Plan de Optimización — Clínica Veterinaria Poveda</h3>
-                <p class="project-description">
-                    Análisis técnico On-Page completo para negocio local en Roquetas de Mar. Corrección de errores de seguridad SSL, jerarquización H1-H3, meta-etiquetas y prototipado responsivo adaptado para captación de clientes.
-                </p>
-
-                <div class="project-tags">
-                    <span class="tag">SEO On-Page</span>
-                    <span class="tag">Auditoría Técnica</span>
-                    <span class="tag">HTML5 / CSS3</span>
-                    <span class="tag">Roquetas de Mar</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://fmheredia.github.io/mockup-veterinaria/" target="_blank" class="btn btn-primary">
-                        <span>Ver Demo Interactivo</span> 🔗
-                    </a>
-                    <a href="docs/auditoria-veterinaria-poveda.pdf" target="_blank" class="btn btn-pdf">
-                        <span>📄 Informe PDF</span>
-                    </a>
-                </div>
-            </article>
-        </section>
-
-        <!-- Nueva Sección: Certificaciones Profesionales -->
-        <section class="certifications-section">
-            <div class="section-title">
-                <h2>Certificaciones Profesionales</h2>
-                <span class="title-line"></span>
-            </div>
-
-            <div class="cert-grid">
-                <!-- Certificado 1: SEO Mastery -->
-                <article class="cert-card" data-tilt>
-                    <div class="card-glow"></div>
-                    <div class="cert-header">
-                        <span class="badge badge-ibm">IBM / SkillUp</span>
-                        <span class="cert-date">Octubre 2026</span>
-                    </div>
-                    <h3>SEO Mastery: From Fundamentals to GenAI & GEO Strategies</h3>
-                    <p class="cert-description">
-                        Estrategia de contenidos, SEO On-Page, Schema Markup, flujo de trabajo con GenAI e implementación de Generative Engine Optimization (GEO).
-                    </p>
-                    <a href="https://coursera.org/verify/specialization/U5357SR9Z240" target="_blank" class="btn btn-verify">
-                        <span>Verificar Credencial</span> 🔗
-                    </a>
-                </article>
-
-                <!-- Certificado 2: Google Digital Marketing & E-commerce -->
-                <article class="cert-card" data-tilt>
-                    <div class="card-glow"></div>
-                    <div class="cert-header">
-                        <span class="badge badge-google">Google</span>
-                        <span class="cert-date">Octubre 2026</span>
-                    </div>
-                    <h3>Google Digital Marketing & E-commerce</h3>
-                    <p class="cert-description">
-                        Captación de clientes, Email Marketing, analítica de marketing, optimización de conversiones (CRO) y gestión de tiendas online.
-                    </p>
-                    <a href="https://coursera.org/verify/professional-cert/T07M2Z5TZKGE" target="_blank" class="btn btn-verify">
-                        <span>Verificar Credencial</span> 🔗
-                    </a>
-                </article>
-
-                <!-- Certificado 3: Google AI Professional Certificate -->
-                <article class="cert-card" data-tilt>
-                    <div class="card-glow"></div>
-                    <div class="cert-header">
-                        <span class="badge badge-google">Google</span>
-                        <span class="cert-date">Septiembre 2026</span>
-                    </div>
-                    <h3>Google AI Professional Certificate</h3>
-                    <p class="cert-description">
-                        Dominio de IA generativa aplicada a investigación, análisis de datos, comunicación, creación de contenido y automatización.
-                    </p>
-                    <a href="https://coursera.org/verify/professional-cert/XPL07988KX9Q" target="_blank" class="btn btn-verify">
-                        <span>Verificar Credencial</span> 🔗
-                    </a>
-                </article>
-
-                <!-- Certificado 4: Microsoft SQL Server -->
-                <article class="cert-card" data-tilt>
-                    <div class="card-glow"></div>
-                    <div class="cert-header">
-                        <span class="badge badge-microsoft">Microsoft</span>
-                        <span class="cert-date">Septiembre 2026</span>
-                    </div>
-                    <h3>Microsoft SQL Server Professional Certificate</h3>
-                    <p class="cert-description">
-                        Consultas T-SQL complejas, diseño relacional de bases de datos, optimización de rendimiento, indexación y mantenimiento.
-                    </p>
-                    <a href="https://coursera.org/verify/professional-cert/A28JRSFJTSBT" target="_blank" class="btn btn-verify">
-                        <span>Verificar Credencial</span> 🔗
-                    </a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Habilidades Técnicas Visuales -->
-        <section class="skills-section">
-            <div class="section-title">
-                <h2>Habilidades Técnicas & Herramientas</h2>
-                <span class="title-line"></span>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon">🔍</div>
-                    <h4>SEO & Analítica Web</h4>
-                    <ul class="skill-list">
-                        <li><span>Auditorías On-Page & SEO Técnico</span></li>
-                        <li><span>Optimizaciones SERP (Title / Meta)</span></li>
-                        <li><span>Estrategia de SEO Local</span></li>
-                        <li><span>Jerarquía Semántica & Indexación</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-icon">⚡</div>
-                    <h4>Desarrollo & Maquetación</h4>
-                    <ul class="skill-list">
-                        <li><span>HTML5 & CSS3 Avanzado</span></li>
-                        <li><span>Despliegue GitHub Pages / Cloudflare</span></li>
-                        <li><span>Prototipado UI/UX en Figma</span></li>
-                        <li><span>Navegación Móvil & CRO</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <div class="skill-icon">🛠️</div>
-                    <h4>Herramientas & Entorno</h4>
-                    <ul class="skill-list">
-                        <li><span>Google Search Console / Extensiones SEO</span></li>
-                        <li><span>Bases de Datos & SQL</span></li>
-                        <li><span>Python (Procesamiento de Texto)</span></li>
-                        <li><span>Git & Control de Versiones</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Felipe Martínez Heredia | <a href="mailto:herediamfelipe@gmail.com">herediamfelipe@gmail.com</a></p>
-        </div>
-    </footer>
-
-    <!-- Librería para Animación e Inclinación 3D (Tilt.js) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script>
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 12,            // Grados máximos de rotación 3D
-            speed: 400,          // Velocidad de transición
-            glare: true,         // Efecto de reflejo/brillo 3D
-            "max-glare": 0.25,   // Opacidad máxima del brillo
-            scale: 1.02          // Ligero aumento de escala al pasar el cursor
-        });
-    </script>
-</body>
-</html>
+    </div>
+</section>
