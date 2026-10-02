@@ -72,7 +72,7 @@
             </div>
 
             <!-- Proyecto 1: Clínica Veterinaria Poveda -->
-            <article class="project-card">
+            <article class="project-card" data-tilt>
                 <div class="card-glow"></div>
                 <div class="project-header">
                     <span class="project-badge">SEO Local & Auditoría Técnica</span>
@@ -100,6 +100,80 @@
                     </a>
                 </div>
             </article>
+        </section>
+
+        <!-- Nueva Sección: Certificaciones Profesionales -->
+        <section class="certifications-section">
+            <div class="section-title">
+                <h2>Certificaciones Profesionales</h2>
+                <span class="title-line"></span>
+            </div>
+
+            <div class="cert-grid">
+                <!-- Certificado 1: SEO Mastery -->
+                <article class="cert-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="cert-header">
+                        <span class="badge badge-ibm">IBM / SkillUp</span>
+                        <span class="cert-date">Octubre 2026</span>
+                    </div>
+                    <h3>SEO Mastery: From Fundamentals to GenAI & GEO Strategies</h3>
+                    <p class="cert-description">
+                        Estrategia de contenidos, SEO On-Page, Schema Markup, flujo de trabajo con GenAI e implementación de Generative Engine Optimization (GEO).
+                    </p>
+                    <a href="https://coursera.org/verify/specialization/U5357SR9Z240" target="_blank" class="btn btn-verify">
+                        <span>Verificar Credencial</span> 🔗
+                    </a>
+                </article>
+
+                <!-- Certificado 2: Google Digital Marketing & E-commerce -->
+                <article class="cert-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="cert-header">
+                        <span class="badge badge-google">Google</span>
+                        <span class="cert-date">Octubre 2026</span>
+                    </div>
+                    <h3>Google Digital Marketing & E-commerce</h3>
+                    <p class="cert-description">
+                        Captación de clientes, Email Marketing, analítica de marketing, optimización de conversiones (CRO) y gestión de tiendas online.
+                    </p>
+                    <a href="https://coursera.org/verify/professional-cert/T07M2Z5TZKGE" target="_blank" class="btn btn-verify">
+                        <span>Verificar Credencial</span> 🔗
+                    </a>
+                </article>
+
+                <!-- Certificado 3: Google AI Professional Certificate -->
+                <article class="cert-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="cert-header">
+                        <span class="badge badge-google">Google</span>
+                        <span class="cert-date">Septiembre 2026</span>
+                    </div>
+                    <h3>Google AI Professional Certificate</h3>
+                    <p class="cert-description">
+                        Dominio de IA generativa aplicada a investigación, análisis de datos, comunicación, creación de contenido y automatización.
+                    </p>
+                    <a href="https://coursera.org/verify/professional-cert/XPL07988KX9Q" target="_blank" class="btn btn-verify">
+                        <span>Verificar Credencial</span> 🔗
+                    </a>
+                </article>
+
+                <!-- Certificado 4: Microsoft SQL Server -->
+                <article class="cert-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="cert-header">
+                        <span class="badge badge-microsoft">Microsoft</span>
+                        <span class="cert-date">Septiembre 2026</span>
+                    </div>
+                    <h3>Microsoft SQL Server Professional Certificate</h3>
+                    <p class="cert-description">
+                        Consultas T-SQL complejas, diseño relacional de bases de datos, optimización de rendimiento, indexación y mantenimiento.
+                    </p>
+                    <a href="https://coursera.org/verify/professional-cert/A28JRSFJTSBT" target="_blank" class="btn btn-verify">
+                        <span>Verificar Credencial</span> 🔗
+                    </a>
+                </article>
+            </div>
         </section>
 
         <!-- Habilidades Técnicas Visuales -->
@@ -152,5 +226,16 @@
         </div>
     </footer>
 
+    <!-- Librería para Animación e Inclinación 3D (Tilt.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+            max: 12,            // Grados máximos de rotación 3D
+            speed: 400,          // Velocidad de transición
+            glare: true,         // Efecto de reflejo/brillo 3D
+            "max-glare": 0.25,   // Opacidad máxima del brillo
+            scale: 1.02          // Ligero aumento de escala al pasar el cursor
+        });
+    </script>
 </body>
 </html>
