@@ -1,30 +1,354 @@
 /* ==========================================================================
-   Desplazamiento Suave (Smooth Scroll) & Animaciones
+   1. VARIABLES GLOBALES Y RESET
    ========================================================================== */
+:root {
+    --bg-primary: #0b0f19;
+    --bg-card: rgba(15, 23, 42, 0.85);
+    --bg-card-hover: rgba(30, 41, 59, 0.9);
+    --border-color: rgba(56, 189, 248, 0.2);
+    --border-hover: rgba(56, 189, 248, 0.6);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-description: #cbd5e1;
+    --accent-cyan: #38bdf8;
+    --accent-blue: #0284c7;
+    --glow-cyan: rgba(56, 189, 248, 0.15);
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-family);
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 /* ==========================================================================
-   Rediseño Completo de Tarjetas de Certificación
+   2. FONDOS DE LUZ & LUCES NEÓN (BG GLOW)
+   ========================================================================== */
+.bg-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(140px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+.bg-glow-1 {
+    top: -150px;
+    left: -100px;
+    background: radial-gradient(circle, #0284c7 0%, transparent 70%);
+}
+
+.bg-glow-2 {
+    bottom: -150px;
+    right: -100px;
+    background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+}
+
+/* ==========================================================================
+   3. HERO / PRESENTACIÓN PRINCIPAL
+   ========================================================================== */
+.hero {
+    position: relative;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #34d399;
+    margin-bottom: 24px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #34d399;
+}
+
+.avatar-container {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px;
+}
+
+.avatar-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-cyan), #6366f1);
+    opacity: 0.8;
+    filter: blur(4px);
+}
+
+.avatar-monogram {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    border: 2px solid var(--border-color);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-cyan);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.bio {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    color: var(--text-description);
+    font-size: 1.05rem;
+}
+
+/* Botón Destacado CV */
+.main-cta {
+    margin-bottom: 32px;
+}
+
+.btn-cv-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-cv-highlight:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.6);
+}
+
+.btn-cv-highlight .text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.btn-cv-highlight .text strong {
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.btn-cv-highlight .text small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: rgba(51, 65, 85, 0.9);
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. TÍTULOS DE SECCIÓN
+   ========================================================================== */
+.section-title {
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.title-line {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-cyan);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* ==========================================================================
+   5. TARJETAS DE PROYECTOS & CASOS DE ESTUDIO
+   ========================================================================== */
+.projects-section {
+    padding: 40px 0;
+}
+
+.project-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: all 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 15px 35px rgba(2, 132, 199, 0.2);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.project-badge {
+    padding: 4px 12px;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.project-description {
+    color: var(--text-description);
+    font-size: 0.98rem;
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.tag {
+    background: rgba(30, 41, 59, 0.8);
+    color: #94a3b8;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    border-color: var(--accent-cyan);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #0369a1;
+}
+
+/* ==========================================================================
+   6. TARJETAS DE CERTIFICACIÓN (GRILLA, GLASSMORPHISM & BADGES)
    ========================================================================== */
 .certifications-section {
-    padding: 60px 0;
+    padding: 50px 0;
 }
 
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
-    perspective: 1200px;
+    perspective: 1000px;
 }
 
 .cert-card {
-    position: relative;
-    background: rgba(15, 23, 42, 0.85); /* Fondo oscuro translúcido con alto contraste */
+    background: var(--bg-card);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 28px;
     display: flex;
@@ -32,13 +356,12 @@ html {
     justify-content: space-between;
     transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    overflow: hidden;
 }
 
-/* Efecto Neón Glow al pasar el cursor */
 .cert-card:hover {
-    border-color: rgba(56, 189, 248, 0.6);
-    box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25), 0 0 20px rgba(56, 189, 248, 0.15);
+    border-color: var(--border-hover);
+    box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25), 0 0 20px var(--glow-cyan);
+    transform: translateY(-4px);
 }
 
 .cert-header {
@@ -51,16 +374,16 @@ html {
 .cert-issuer {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .issuer-icon {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .cert-date {
     font-size: 0.82rem;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -73,13 +396,13 @@ html {
 }
 
 .cert-description {
-    color: #cbd5e1;
+    color: var(--text-description);
     font-size: 0.92rem;
     line-height: 1.6;
     margin-bottom: 24px;
 }
 
-/* Badges estilizados */
+/* Badges estilizados por emisor */
 .badge {
     padding: 5px 12px;
     border-radius: 20px;
@@ -90,7 +413,7 @@ html {
 }
 
 .badge-google {
-    background: rgba(66, 133, 244, 0.2);
+    background: rgba(66, 133, 244, 0.18);
     color: #60a5fa;
     border: 1px solid rgba(66, 133, 244, 0.4);
 }
@@ -102,12 +425,12 @@ html {
 }
 
 .badge-microsoft {
-    background: rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.18);
     color: #34d399;
     border: 1px solid rgba(52, 211, 153, 0.4);
 }
 
-/* Botón interactivo dentro de la tarjeta */
+/* Botón Interactivo de Verificar Credencial */
 .cert-footer {
     margin-top: auto;
 }
@@ -117,9 +440,9 @@ html {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 18px;
-    background: rgba(56, 189, 248, 0.1);
-    color: #38bdf8;
+    padding: 11px 18px;
+    background: rgba(56, 189, 248, 0.08);
+    color: var(--accent-cyan);
     border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 10px;
     font-size: 0.88rem;
@@ -129,9 +452,9 @@ html {
 }
 
 .btn-verify-card:hover {
-    background: #0284c7;
+    background: var(--accent-blue);
     color: #ffffff;
-    border-color: #38bdf8;
+    border-color: var(--accent-cyan);
     box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
 }
 
@@ -142,4 +465,113 @@ html {
 
 .btn-verify-card:hover .arrow-icon {
     transform: translate(3px, -3px);
+}
+
+/* ==========================================================================
+   7. HABILIDADES TÉCNICAS
+   ========================================================================== */
+.skills-section {
+    padding: 50px 0 80px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.skill-category {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    border-color: var(--border-hover);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.skill-category h4 {
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: var(--text-description);
+    font-size: 0.92rem;
+}
+
+.skill-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   9. RESPONSIVO (MÓVILES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+
+    .btn {
+        justify-content: center;
+        width: 100%;
+    }
 }
